@@ -96,5 +96,9 @@ describe("parse()", () => {
             espree.parse("foo", Object.freeze({ ecmaFeatures: Object.freeze({}) }));
         });
 
+        it("Cast valid non-string input", () => {
+            espree.parse(Buffer.from("var foo = bar;"));
+        });
+
     });
 });
