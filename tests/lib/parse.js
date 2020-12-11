@@ -97,7 +97,12 @@ describe("parse()", () => {
         });
 
         it("Cast valid non-string input", () => {
-            espree.parse(Buffer.from("var foo = bar;"));
+            const str = "var foo = bar;";
+
+            assert.deepStrictEqual(
+                espree.parse(Buffer.from(str)),
+                espree.parse(str)
+            );
         });
 
     });
